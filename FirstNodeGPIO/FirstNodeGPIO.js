@@ -1,10 +1,13 @@
 var fs = require('fs');
 
-console.log('Hello World');
+//simple console log
+console.log("Hello World");
 
-console.log('Hello World - ' + process.argv);
+//explore cmd-line args
+console.log("Hello World - " + process.argv);
 
-fs.readFile('HelloWorld.txt','utf8', function(err, data) {
+//read file
+fs.readFile("HelloWorld.txt", "utf8", function(err, data) {
 	
 	if(err) 
 	{
@@ -12,5 +15,19 @@ fs.readFile('HelloWorld.txt','utf8', function(err, data) {
 	}
 	
 	console.log(data);
+	
+});
+
+//look at a folder
+fs.readdir('/etc', function(err, list){
+	
+	if(err)
+	{
+		return console.log("Error - " + err);
+	}
+	
+	list.forEach(function(item){
+		console.log(item);
+	});
 	
 });
