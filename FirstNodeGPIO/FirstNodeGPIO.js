@@ -13,8 +13,9 @@ fs.readFile("HelloWorld.txt", "utf8", function(err, data) {
 	{
 		return console.log("Error - " + err);
 	}
-	
+	console.log("--------------------");
 	console.log(data);
+	console.log("--------------------");
 	
 });
 
@@ -26,8 +27,10 @@ fs.readdir('/etc', function(err, list){
 		return console.log("Error - " + err);
 	}
 	
+	console.log("--------------------");
 	list.forEach(function(item){
 		console.log(item);
 	});
+	console.log("--------------------");
 	
 });
