@@ -25,8 +25,17 @@ function discharge()
 	var tempA = new GPIO(23, "in", "both");
 	var tempB = new GPIO(24, "out");
 	tempB.writeSync(0);
-	while(tempA.readSync() != 0)
-	{};
+	tempA.watch(
+			function(err,state)
+			{
+				console.log("discharging");
+				if(state==1)
+				{
+					console.log("discharged");
+				}
+			}
+	);
+	
 }
 
 function charge_time()
@@ -37,18 +46,22 @@ function charge_time()
 	var startDate = new Date();
 	var startTime = startDate.getTime();
 	console.log("Start: " + startTime);
-	tempA.write(1);
-	while(tempB.readSync() != 1)
-	{
-		console.log("charging");
-		break;
-	}
-	var endDate = new Date();
-	var endTime = endDate.getTime();
+	tempA.writeSync(1);
 	
-	console.log("End: " + endTime);
-	
-	return (endTime - startTime) * 1000000;
+	tempB.watch(
+		function(err,state)
+		{
+			console.log("charging");
+			if( state == 1 )
+			{
+				var endDate = new Date();
+				var endTime = endDate.getTime();
+				
+				console.log("End: " + endTime);
+			}
+		}
+	);
+
 }
 
 function analog_read()
