@@ -4,6 +4,8 @@ var red = new GPIO(16, "out");
 var green = new GPIO(20, "out");
 var blue = new GPIO(21, "out");
 
+redOn();
+
 function redOn()
 {
 	console.log("red");
