@@ -15,7 +15,7 @@ function light(err, state)
 	else
 	{
 		led.writeSync(1);
-		console.log("Current Temp:" + temperature_from_resistance(read_resistance()));
+		//console.log("Current Temp:" + temperature_from_resistance(read_resistance()));
 	}
 }
 
