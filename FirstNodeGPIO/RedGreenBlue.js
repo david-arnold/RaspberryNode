@@ -15,6 +15,19 @@ if( process.argv[2] == "red" ) {
 	green.writeSync(1);
 } else if( process.argv[2] == "blue" ) {
 	blue.writeSync(1);
+} else if( process.argv[2] == "yellow" ) {
+	red.writeSync(1);
+	green.writeSync(1);
+} else if( process.argv[2] == "magenta" ) {
+	red.writeSync(1);
+	blue.writeSync(1);
+} else if( process.argv[2] == "cyan" ) {
+	green.writeSync(1);
+	blue.writeSync(1);
+} else if( process.argv[2] == "white" ) {
+	red.writeSync(1);
+	green.writeSync(1);
+	blue.writeSync(1);
 } else if( process.argv[2] == "off" ) {
 	
 }
