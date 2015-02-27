@@ -57,6 +57,8 @@ function charge_time()
 	
 	tempA.unexport();
 	tempB.unexport();
+	
+	return (endTime - startTime) * 1000000;
 }
 
 function analog_read()
@@ -74,6 +76,7 @@ function read_resistance()
 		total += analog_read();
 	}
 	var reading = total / 100;
+	console.log("reading = " + reading);
 	return reading * 6.05 - 939;
 }
 
