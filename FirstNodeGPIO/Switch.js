@@ -22,7 +22,7 @@ function light(err, state)
 function discharge()
 {
 	console.log("discharge");
-	var tempA = new GPIO(23, "in");
+	var tempA = new GPIO(23, "in", "both");
 	var tempB = new GPIO(24, "out")
 	tempB.writeSync(0);
 	var startDate = new Date();
@@ -35,10 +35,11 @@ function charge_time()
 {
 	console.log("charge_time");
 	var tempA = new GPIO(23, "out");
-	var tempB = new GPIO(24, "in")
+	var tempB = new GPIO(24, "in", "both")
 	var startDate = new Date();
 	var startTime = startDate.getTime();
-	tempA.write(1);
+	console.log("Start: " + startTime);
+	tempA.writeSync(1);
 	while(tempB.readSync() != 1)
 	{
 		console.log("charging");
@@ -47,7 +48,6 @@ function charge_time()
 	var endDate = new Date();
 	var endTime = endDate.getTime();
 	
-	console.log("Start: " + startTime);
 	console.log("End: " + endTime);
 	
 	return (endTime - startTime) * 1000000;
