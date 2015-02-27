@@ -5,31 +5,16 @@ var green = new GPIO(20, "out");
 var blue = new GPIO(21, "out");
 
 
-setInterval(redOn(), 1000);
-//setInterval(greenOn(), 3000);
-//setInterval(blueOn(), 4000);
+red.writeSync(0);
+green.writeSync(0);
+blue.writeSync(0);
 
-
-function redOn()
-{
-	console.log("red");
+if( process.argv[2] == "red" ) {
 	red.writeSync(1);
-	green.writeSync(0);
-	blue.writeSync(0);
-}
-
-function greenOn()
-{
-	console.log("green");
+} else if( process.argv[2] == "green" ) {
 	green.writeSync(1);
-	red.writeSync(0);
-	blue.writeSync(0);
-}
-
-function blueOn()
-{
-	console.log("blue");
+} else if( process.argv[2] == "blue" ) {
 	blue.writeSync(1);
-	green.writeSync(0);
-	red.writeSync(0);
+} else if( process.argv[2] == "off" ) {
+	
 }
