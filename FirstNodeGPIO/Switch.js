@@ -35,7 +35,8 @@ function discharge()
 				}
 			}
 	);
-	
+	tempA.unexport();
+	tempB.unexport();
 }
 
 function charge_time()
@@ -61,7 +62,8 @@ function charge_time()
 			}
 		}
 	);
-
+	tempA.unexport();
+	tempB.unexport();
 }
 
 function analog_read()
