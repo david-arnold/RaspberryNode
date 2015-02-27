@@ -75,7 +75,7 @@ function temperature_from_resistance(resistance)
 	var t25 = t0 + 25;
 	var inv_T = 1/t25 + 1/B * Math.log(resistance / R0);
 	
-	var T = (1/invT - t0) * 0.9;
+	var T = (1/inv_T - t0) * 0.9;
 	
 	return T * 9.0/5.0 + 32;
 }
