@@ -37,7 +37,7 @@ function charge_time()
 	var startDate = new Date();
 	var startTime = startDate.getTime();
 	console.log("Start: " + startTime);
-	tempA.writeSync(1);
+	tempA.write(1);
 	while(tempB.readSync() != 1)
 	{
 		console.log("charging");
