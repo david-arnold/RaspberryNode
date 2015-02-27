@@ -24,11 +24,11 @@ function discharge()
 	console.log("discharge");
 	var tempA = new GPIO(23, "in", "both");
 	var tempB = new GPIO(24, "out");
-	tempB.writeSync(0);
+	tempB.write(0);
 	
 	while(tempA.readSync() !=0)
 	{
-		console.log("discharging");
+		//console.log("discharging");
 	};
 	
 	tempA.unexport();
@@ -42,18 +42,18 @@ function charge_time()
 	var tempB = new GPIO(24, "in");
 	var startDate = new Date();
 	var startTime = startDate.getTime();
-	console.log("Start: " + startTime);
-	tempA.writeSync(1);
+	//console.log("Start: " + startTime);
+	tempA.write(1);
 	
 	while(tempB.readSync() != 1)
 	{
-		console.log("charging");
+		//console.log("charging");
 	};
 	
 	var endDate = new Date();
 	var endTime = endDate.getTime();
 	
-	console.log("End: " + endTime);
+	//console.log("End: " + endTime);
 	
 	tempA.unexport();
 	tempB.unexport();
