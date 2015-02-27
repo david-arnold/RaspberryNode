@@ -4,7 +4,11 @@ var red = new GPIO(16, "out");
 var green = new GPIO(20, "out");
 var blue = new GPIO(21, "out");
 
-redOn();
+
+setInterval(redOn(), 1000);
+setInterval(greenOn(), 3000);
+setInterval(blueOn(), 4000);
+
 
 function redOn()
 {
@@ -12,7 +16,6 @@ function redOn()
 	red.writeSync(1);
 	green.writeSync(0);
 	blue.writeSync(0);
-	setTimeout(greenOn(), 500);
 }
 
 function greenOn()
@@ -21,7 +24,6 @@ function greenOn()
 	green.writeSync(1);
 	red.writeSync(0);
 	blue.writeSync(0);
-	setTimeout(blueOn(), 500);
 }
 
 function blueOn()
@@ -30,5 +32,4 @@ function blueOn()
 	blue.writeSync(1);
 	green.writeSync(0);
 	red.writeSync(0);
-	setTimeout(redOn(), 500);
 }
