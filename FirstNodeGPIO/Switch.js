@@ -21,7 +21,7 @@ function light(err, state)
 
 function discharge()
 {
-	console.log("discharge");
+	//console.log("discharge");
 	var tempA = new GPIO(23, "in", "both");
 	var tempB = new GPIO(24, "out");
 	tempB.write(0);
@@ -31,13 +31,16 @@ function discharge()
 		//console.log("discharging");
 	};
 	
+	var startTime = new Date().getTime();
+	while(new Date().getTime() - startTime < 100){};
+
 	tempA.unexport();
 	tempB.unexport();
 }
 
 function charge_time()
 {
-	console.log("charge_time");
+	//console.log("charge_time");
 	var tempA = new GPIO(23, "out");
 	var tempB = new GPIO(24, "in");
 	var startDate = new Date();
@@ -69,14 +72,14 @@ function analog_read()
 
 function read_resistance()
 {
-	console.log("read resistance");
+	//console.log("read resistance");
 	var total = 0;
 	for(var i=0; i<100; i++)
 	{
 		total += analog_read();
 	}
 	var reading = total / 100;
-	console.log("reading = " + reading);
+	//console.log("reading = " + reading);
 	return reading * 6.05 - 939;
 }
 
