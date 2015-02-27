@@ -25,16 +25,12 @@ function discharge()
 	var tempA = new GPIO(23, "in", "both");
 	var tempB = new GPIO(24, "out");
 	tempB.writeSync(0);
-	tempA.watch(
-			function(err,state)
-			{
-				console.log("discharging");
-				if(state==1)
-				{
-					console.log("discharged");
-				}
-			}
-	);
+	
+	while(tempA.readSync() !=0)
+	{
+		console.log("discharging");
+	};
+	
 	tempA.unexport();
 	tempB.unexport();
 }
@@ -49,19 +45,16 @@ function charge_time()
 	console.log("Start: " + startTime);
 	tempA.writeSync(1);
 	
-	tempB.watch(
-		function(err,state)
-		{
-			console.log("charging");
-			if( state == 1 )
-			{
-				var endDate = new Date();
-				var endTime = endDate.getTime();
-				
-				console.log("End: " + endTime);
-			}
-		}
-	);
+	while(tempB.readSync() != 1)
+	{
+		console.log("charging");
+	};
+	
+	var endDate = new Date();
+	var endTime = endDate.getTime();
+	
+	console.log("End: " + endTime);
+	
 	tempA.unexport();
 	tempB.unexport();
 }
