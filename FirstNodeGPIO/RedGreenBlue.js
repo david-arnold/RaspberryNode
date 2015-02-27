@@ -6,8 +6,8 @@ var blue = new GPIO(21, "out");
 
 
 setInterval(redOn(), 1000);
-setInterval(greenOn(), 3000);
-setInterval(blueOn(), 4000);
+//setInterval(greenOn(), 3000);
+//setInterval(blueOn(), 4000);
 
 
 function redOn()
