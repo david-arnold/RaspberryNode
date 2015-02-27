@@ -38,7 +38,7 @@ function charge_time()
 	var tempB = new GPIO(24, "in")
 	var startDate = new Date();
 	var startTime = startDate.getTime();
-	tempA.writeSync(1);
+	tempA.write(1);
 	while(tempB.readSync() != 1)
 	{
 		console.log("charging");
