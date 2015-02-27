@@ -23,7 +23,7 @@ function discharge()
 {
 	console.log("discharge");
 	var tempA = new GPIO(23, "in", "both");
-	var tempB = new GPIO(24, "out")
+	var tempB = new GPIO(24, "out");
 	tempB.writeSync(0);
 	while(tempA.readSync() != 0)
 	{};
@@ -33,7 +33,7 @@ function charge_time()
 {
 	console.log("charge_time");
 	var tempA = new GPIO(23, "out");
-	var tempB = new GPIO(24, "in")
+	var tempB = new GPIO(24, "in");
 	var startDate = new Date();
 	var startTime = startDate.getTime();
 	console.log("Start: " + startTime);
