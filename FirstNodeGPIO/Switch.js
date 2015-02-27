@@ -25,6 +25,10 @@ function discharge()
 	var tempA = new GPIO(23, "in");
 	var tempB = new GPIO(24, "out")
 	tempB.writeSync(0);
+	var startDate = new Date();
+	var startTime = startDate.getTime();
+	while( new Date().getTime() - startTime < 100 )
+	{};
 }
 
 function charge_time()
